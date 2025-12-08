@@ -1,0 +1,102 @@
+
+
+Install powershell
+winget install --id Microsoft.PowerShell --source winget
+
+Install neovim
+https://github.com/neovim/neovim/blob/master/INSTALL.md
+winget install Neovim.Neovim
+
+Install git
+https://git-scm.com/downloads/win
+winget install --id Git.Git -e --source winget
+
+Install lazygit
+https://github.com/jesseduffield/lazygit?tab=readme-ov-file#winget-windows-10-1709-or-later
+winget install -e --id=JesseDuffield.lazygit
+
+# This next section just didn't work....so using Zig
+# Install Visual Studio Community Edition
+# https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&passive=false&cid=2030
+# https://www.reddit.com/r/neovim/comments/14oozmu/neovim_cant_find_c_compiler/
+# Make sure you install clang
+# https://learn.microsoft.com/en-us/cpp/build/clang-support-msbuild?view=msvc-170
+
+# Sort out treesitter
+# 
+# 
+#     Install Microsoft Visual Studio 2022 (community edition is fine)
+# 
+#     open the developer tools command prompt
+# 
+#     open neovim. It will compile all the necessary stuff for treesitter. Wait for it to finish.
+# 
+#     done.
+
+# Install scoop
+https://scoop.sh/
+
+
+# Install Zig
+https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support#zig
+scoop install zig
+
+# Install rga (ripgrep-all) which includes ripgrep
+scoop install rga
+
+# Install fzf too while we are at it
+scoop install fzf
+
+# Install go DiskUsage()
+https://github.com/dundee/gdu
+winget install gdu
+
+# Install bottom
+https://github.com/ClementTsang/bottom
+# A customizable cross-platform graphical process/system monitor for the terminal.
+ 
+winget install Clement.bottom
+# Install python using miniconda
+https://docs.anaconda.com/miniconda/install/#quick-command-line-install
+# Create a virtual environment using conda
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o miniconda.exe
+Start-Process -FilePath ".\miniconda.exe" -ArgumentList "/S" -Wait
+del miniconda.exe
+
+
+# Install astronvim
+https://docs.astronvim.com/
+
+Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
+
+Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
+
+git clone --depth 1 https://github.com/AstroNvim/template $env:LOCALAPPDATA\nvim
+Remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force
+nvim
+
+# Install neovide
+https://github.com/neovide/neovide
+Download neovide.msi and install
+Note: Issues with 3d acceleration with Vmware svga
+
+
+
+# Note: plugins are managed using lazy.nvim
+# Note: :Neotree for file manager
+  use <bs> to go up one level
+  use . to re root the view at the selected dir
+# Note: Use nvim-numbertoggle to switch to absolut mode on insert
+  C:\Users\<username>\AppData\Local\nvim\lua\plugins
+  nvim-numbertoggle.lua
+  
+return {
+  "https://github.com/sitiom/nvim-numbertoggle.git"
+}
+
+
+
+
+
+# Some other useful links
+https://github.com/mattimustang/neovim-on-windows
