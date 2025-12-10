@@ -34,4 +34,12 @@ Install-ScoopApp -AppName "rga" -Description "rga - ripgrep-all (includes ripgre
 # fzf - Fuzzy finder
 Install-ScoopApp -AppName "fzf" -Description "fzf - Fuzzy finder"
 
+# Fira Code Font
+Write-Host "Ensuring nerd-fonts bucket is available..." -ForegroundColor Cyan
+if (-not (scoop bucket list | Select-String "nerd-fonts" -Quiet)) {
+    scoop bucket add nerd-fonts
+}
+
+Install-ScoopApp -AppName "FiraCode" -Description "Fira Code Font"
+
 Write-Host "Scoop packages processing complete." -ForegroundColor Green
