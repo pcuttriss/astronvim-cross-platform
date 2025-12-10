@@ -1,4 +1,6 @@
+### This file is a list of task for setting up astronvim on windows ###
 
+## Start powershell installs ##
 
 Install powershell
 winget install --id Microsoft.PowerShell --source winget
@@ -18,6 +20,9 @@ winget install wez.wezterm
 Install lazygit
 https://github.com/jesseduffield/lazygit?tab=readme-ov-file#winget-windows-10-1709-or-later
 winget install -e --id=JesseDuffield.lazygit
+
+## Start vscode updates ##
+Install neovim extensions
 
 # This next section just didn't work....so using Zig
 # Install Visual Studio Community Edition
