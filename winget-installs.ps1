@@ -88,6 +88,6 @@ Install-App -AppId Microsoft.VisualStudioCode -AppName "Visual Studio Code"
 Install-App -AppId Clement.bottom -AppName "bottom"
 
 # 8. Install gdu (Go Disk Usage)
-Install-App -AppId gdu.gdu -AppName "gdu"
+Install-App -AppId dundee.gdu -AppName "gdu"
 
 Write-Host "✅ Setup script finished running." -ForegroundColor Green

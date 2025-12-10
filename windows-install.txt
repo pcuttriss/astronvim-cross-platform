@@ -64,8 +64,8 @@ scoop install zig
 # Install rga (ripgrep-all) which includes ripgrep
 scoop install rga
 
-# Install fzf too while we are at it
-scoop install fzf
+# Install fzf tofo while we are at it
+scoop install fz
 
 # Install python using miniconda
 https://docs.anaconda.com/miniconda/install/#quick-command-line-install
