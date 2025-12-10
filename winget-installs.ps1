@@ -46,4 +46,7 @@ Install-App -AppId wez.wezterm -AppName "Wezterm Terminal"
 # 5. Install Lazygit (Terminal UI for Git)
 Install-App -AppId JesseDuffield.lazygit -AppName "Lazygit"
 
+# 6. Install Visual Studio Code
+Install-App -AppId Microsoft.VisualStudioCode -AppName "Visual Studio Code"
+
 Write-Host "✅ Setup script finished running." -ForegroundColor Green
