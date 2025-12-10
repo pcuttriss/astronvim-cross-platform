@@ -21,6 +21,17 @@ Install lazygit
 https://github.com/jesseduffield/lazygit?tab=readme-ov-file#winget-windows-10-1709-or-later
 winget install -e --id=JesseDuffield.lazygit
 
+# Install bottom
+https://github.com/ClementTsang/bottom
+# A customizable cross-platform graphical process/system monitor for the terminal.
+ 
+winget install Clement.bottom
+
+# Install go DiskUsage()
+https://github.com/dundee/gdu
+winget install gdu
+
+
 ## Start vscode updates ##
 Install neovim extensions
 
@@ -56,15 +67,6 @@ scoop install rga
 # Install fzf too while we are at it
 scoop install fzf
 
-# Install go DiskUsage()
-https://github.com/dundee/gdu
-winget install gdu
-
-# Install bottom
-https://github.com/ClementTsang/bottom
-# A customizable cross-platform graphical process/system monitor for the terminal.
- 
-winget install Clement.bottom
 # Install python using miniconda
 https://docs.anaconda.com/miniconda/install/#quick-command-line-install
 # Create a virtual environment using conda

@@ -11,17 +11,52 @@ function Install-App {
         [string]$AppName
     )
 
-    Write-Host "Installing $AppName (ID: $AppId)..." -ForegroundColor Yellow
-    
-    # Use -h for silent installation if the app supports it.
-    winget install --id $AppId -e -h 
-    
+    Write-Host "Checking for $AppName (ID: $AppId)..." -ForegroundColor Yellow
+
+    # Check if the app is already installed and capture output
+    $listOutput = winget list --id $AppId --exact 2>&1
+
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "$AppName installed successfully." -ForegroundColor Green
-    } elseif ($LASTEXITCODE -eq 17) {
-        Write-Host "$AppName is already installed. Skipping." -ForegroundColor Cyan
+        # App is installed, check for updates by parsing the output
+        $line = $listOutput | Select-String -Pattern $AppId -SimpleMatch | Select-Object -First 1
+        
+        if ($line) {
+            $lineStr = $line.ToString()
+            # Find index of AppId to ignore the Name column
+            $idIndex = $lineStr.IndexOf($AppId, [System.StringComparison]::OrdinalIgnoreCase)
+            
+            if ($idIndex -ge 0) {
+                $rest = $lineStr.Substring($idIndex)
+                $tokens = $rest -split '\s+'
+                
+                # If tokens count >= 4, it usually means: Id, Version, Available, Source
+                if ($tokens.Count -ge 4) {
+                    $newVer = $tokens[2]
+                    Write-Host "$AppName is installed but a newer version ($newVer) is available." -ForegroundColor Cyan
+                    $response = Read-Host "Do you want to update $AppName? (y/n)"
+                    if ($response -match "^[yY]") {
+                        Write-Host "Updating $AppName..." -ForegroundColor Yellow
+                        winget upgrade --id $AppId -e -h
+                    }
+                } else {
+                    Write-Host "$AppName is already installed and up to date." -ForegroundColor Green
+                }
+            }
+        } else {
+            Write-Host "$AppName is already installed." -ForegroundColor Green
+        }
     } else {
-        Write-Host "Error installing $AppName. Exit code: $LASTEXITCODE" -ForegroundColor Red
+        Write-Host "Installing $AppName..." -ForegroundColor Yellow
+        # Use -h for silent installation if the app supports it.
+        winget install --id $AppId -e -h 
+        
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "$AppName installed successfully." -ForegroundColor Green
+        } elseif ($LASTEXITCODE -eq 17) {
+            Write-Host "$AppName is already installed. Skipping." -ForegroundColor Cyan
+        } else {
+            Write-Host "Error installing $AppName. Exit code: $LASTEXITCODE" -ForegroundColor Red
+        }
     }
     Write-Host "---"
 }
@@ -48,5 +83,11 @@ Install-App -AppId JesseDuffield.lazygit -AppName "Lazygit"
 
 # 6. Install Visual Studio Code
 Install-App -AppId Microsoft.VisualStudioCode -AppName "Visual Studio Code"
+
+# 7. Install bottom (System Monitor)
+Install-App -AppId Clement.bottom -AppName "bottom"
+
+# 8. Install gdu (Go Disk Usage)
+Install-App -AppId gdu.gdu -AppName "gdu"
 
 Write-Host "✅ Setup script finished running." -ForegroundColor Green
