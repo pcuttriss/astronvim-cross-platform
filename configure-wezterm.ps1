@@ -30,15 +30,23 @@ Write-Host "Found Git Bash at: $gitBashPath" -ForegroundColor Green
 # Escape backslashes for Lua string (e.g., C:\Path becomes C:\\Path)
 $luaPath = $gitBashPath.Replace('\', '\\')
 
+$themeDir = "$env:USERPROFILE\Documents\github\dracula-theme"
+$luaThemeDir = $themeDir.Replace('\', '\\')
+
 $configContent = @"
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.color_scheme_dirs = { '$luaThemeDir' }
+config.color_scheme = "Dracula (Official)"
+-- config.tab_bar_at_bottom = true
+-- config.use_fancy_tab_bar = false
+config.window_decorations = "RESIZE"
+
 -- Set Font
 config.font = wezterm.font 'Fira Code'
-config.font_size = 9.0
+config.font_size = 11.0
 
--- Spawn a bash shell in login mode
 -- 1. Default Shell: Git Bash
 -- (Standard "New Tab" + button will use this)
 config.default_prog = { '$luaPath', '-i', '-l' }
@@ -50,7 +58,7 @@ config.launch_menu = {
   -- Entry 1 (Required)
   {
     label = "PowerShell",
-    args = { "powershell.exe", "-NoLogo" },
+    args = { "pwsh.exe", "-NoLogo" },
   },
   -- Entry 2 (Optional)
   {
