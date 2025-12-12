@@ -37,6 +37,8 @@ $configContent = @"
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.front_end = 'WebGpu'
+
 -- Set Window Size and Appearance
 config.initial_rows = 48
 config.initial_cols = 150
@@ -120,6 +122,15 @@ config.keys = {
   },
 }
 
+-- Copy on mouse selection using a left handed mouse
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = wezterm.action.CopyTo 'Clipboard',
+  },
+}
+  
 return config
 "@
 
