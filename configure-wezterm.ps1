@@ -37,11 +37,24 @@ $configContent = @"
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+-- Set Window Size and Appearance
+config.initial_rows = 48
+config.initial_cols = 150
 config.color_scheme_dirs = { '$luaThemeDir' }
 config.color_scheme = "Dracula (Official)"
 -- config.tab_bar_at_bottom = true
 -- config.use_fancy_tab_bar = false
 config.window_decorations = "RESIZE"
+config.window_frame = {
+  border_left_width = '0.5cell',
+  border_right_width = '0.5cell',
+  border_bottom_height = '0.25cell',
+  border_top_height = '0.25cell',
+  border_left_color = 'purple',
+  border_right_color = 'purple',
+  border_bottom_color = 'purple',
+  border_top_color = 'purple',
+}
 
 -- Set Font
 config.font = wezterm.font 'Fira Code'

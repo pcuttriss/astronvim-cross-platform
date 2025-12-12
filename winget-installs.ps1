@@ -90,4 +90,7 @@ Install-App -AppId Clement.bottom -AppName "bottom"
 # 8. Install gdu (Go Disk Usage)
 Install-App -AppId dundee.gdu -AppName "gdu"
 
+# 9. Install Neovide
+Install-App -AppId Neovide.Neovide -AppName "Neovide"
+
 Write-Host "✅ Setup script finished running." -ForegroundColor Green

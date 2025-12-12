@@ -1,3 +1,6 @@
+# Dracula Theme Installation Script for WezTerm
+# https://draculatheme.com/wezterm
+
 $repoUrl = "https://github.com/dracula/wezterm.git"
 $targetDir = "$env:USERPROFILE\Documents\github\dracula-theme"
 
