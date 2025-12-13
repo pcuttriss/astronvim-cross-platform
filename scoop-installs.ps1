@@ -40,6 +40,6 @@ if (-not (scoop bucket list | Select-String "nerd-fonts" -Quiet)) {
     scoop bucket add nerd-fonts
 }
 
-Install-ScoopApp -AppName "FiraCode" -Description "Fira Code Font"
+Install-ScoopApp -AppName "FiraCode-NF-Mono" -Description "Fira Code Font"
 
 Write-Host "Scoop packages processing complete." -ForegroundColor Green

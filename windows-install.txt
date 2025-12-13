@@ -97,6 +97,10 @@ NEOVIDE_OPENGL=1
 Configure astronvim to play nicely inside vscode
 https://docs.astronvim.com/recipes/vscode/
 
+Dracula theme for nvim
+https://github.com/Mofiqul/dracula.nvim
+
+
 
 ### Other stuff ###
 

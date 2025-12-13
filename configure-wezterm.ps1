@@ -63,7 +63,7 @@ config.window_frame = {
 }
 
 -- Set Font
-config.font = wezterm.font 'Fira Code'
+config.font = wezterm.font 'FiraCode Nerd Font Mono'
 config.font_size = 11.0
 
 -- 1. Default Shell: Git Bash
