@@ -46,8 +46,7 @@ config.color_scheme_dirs = { '$luaThemeDir' }
 config.color_scheme = "Dracula (Official)"
 -- Use a bright background and a contrasting foreground for selected text
 config.colors = {
-  selection_bg = '#464645ff',
-  selection_fg = '#000000',
+  selection_bg = '#44475a',
 }
 -- config.tab_bar_at_bottom = true
 -- config.use_fancy_tab_bar = false
@@ -124,15 +123,6 @@ config.keys = {
     action = wezterm.action.SplitVertical {
       args = { '$luaPath', '-i', '-l' },
     },
-  },
-}
-
--- Copy on mouse selection
-config.mouse_bindings = {
-  {
-    event = { Up = { streak = 1, button = 'Left' } },
-    mods = 'NONE',
-    action = wezterm.action.CopyTo 'Clipboard',
   },
 }
   
