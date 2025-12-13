@@ -90,8 +90,15 @@ nvim
 https://github.com/neovide/neovide
 Download neovide.msi and install
 Note: Issues with 3d acceleration with Vmware svga
+Use environment variable to deal with this
+https://neovide.dev/command-line-reference.html?highlight=opengl#opengl-renderer
+NEOVIDE_OPENGL=1
+
+Configure astronvim to play nicely inside vscode
+https://docs.astronvim.com/recipes/vscode/
 
 
+### Other stuff ###
 
 # Note: plugins are managed using lazy.nvim
 # Note: :Neotree for file manager

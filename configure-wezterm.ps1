@@ -46,7 +46,7 @@ config.color_scheme_dirs = { '$luaThemeDir' }
 config.color_scheme = "Dracula (Official)"
 -- Use a bright background and a contrasting foreground for selected text
 config.colors = {
-  selection_bg = '#FFFFE0',
+  selection_bg = '#464645ff',
   selection_fg = '#000000',
 }
 -- config.tab_bar_at_bottom = true

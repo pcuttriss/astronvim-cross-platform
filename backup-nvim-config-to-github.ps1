@@ -1,5 +1,11 @@
 Write-Host "Starting Neovim Configuration Backup..." -ForegroundColor Cyan
 
+# 0. Check for Git
+if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
+    Write-Host "Error: Git is not installed or not in the PATH." -ForegroundColor Red
+    exit
+}
+
 # 1. Target Directory
 $nvimPath = "$env:LOCALAPPDATA\nvim"
 if (-not (Test-Path $nvimPath)) {
@@ -33,6 +39,18 @@ if ($status) {
 
 # 5. Prompt for GitHub Details
 Write-Host "`n--- GitHub Remote Setup ---" -ForegroundColor Cyan
+
+# Check for existing remote to skip prompts
+$existingRemote = git remote get-url origin 2>$null
+if ($LASTEXITCODE -eq 0) {
+    Write-Host "Pushing to existing remote: $existingRemote" -ForegroundColor Cyan
+    git branch -M main
+    git push -u origin main
+    Pop-Location
+    Write-Host "Backup process completed." -ForegroundColor Green
+    exit
+}
+
 $userId = Read-Host "Enter your GitHub User ID"
 $repoName = Read-Host "Enter the Repository Name"
 
@@ -43,6 +61,7 @@ if ([string]::IsNullOrWhiteSpace($userId) -or [string]::IsNullOrWhiteSpace($repo
     
     # Configure Remote
     $currentRemote = git remote get-url origin 2>$null
+    
     # We now check the exit code to determine if the remote exists
     if ($LASTEXITCODE -eq 0) {
         Write-Host "Updating existing remote 'origin' to $remoteUrl" -ForegroundColor Yellow
@@ -51,6 +70,7 @@ if ([string]::IsNullOrWhiteSpace($userId) -or [string]::IsNullOrWhiteSpace($repo
         Write-Host "Adding remote 'origin' ($remoteUrl)..." -ForegroundColor Yellow
         git remote add origin $remoteUrl
     }
+    $currentRemote | Out-Null
 
     # Push
     Write-Host "Pushing to GitHub (main branch)..." -ForegroundColor Cyan

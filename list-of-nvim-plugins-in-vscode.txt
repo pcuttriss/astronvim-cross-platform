@@ -1,0 +1,32 @@
+iLoaded (31)
+    ● aerial.nvim 5.8ms  User AstroFile
+    ● astrocore 212.64ms 󰢱 astrocore  AstroNvim
+    ● astrolsp 90.02ms 󰢱 astrolsp  none-ls.nvim
+    ● AstroNvim 0.81ms  start
+    ● astroui 179.83ms  astrocore
+    ● better-escape.nvim 4.71ms  VeryLazy
+    ● blink.cmp 78.96ms 󰢱 blink.cmp  astrolsp
+    ● friendly-snippets 2.47ms  LuaSnip
+    ● gitsigns.nvim 43.5ms  User AstroGitFile
+    ● guess-indent.nvim 4.24ms 󰢱 guess-indent  AstroNvim
+    ● heirline.nvim 14.4ms  BufEnter
+    ● lazy.nvim 47.32ms  init.lua
+    ● lazydev.nvim 42.66ms 󰢱 lazydev.integrations.blink  blink.cmp
+    ● LuaSnip 1200.82ms 󰢱 luasnip  blink.cmp
+    ● mason-lspconfig.nvim 13.11ms  nvim-lspconfig
+    ● mason-null-ls.nvim 18.06ms  none-ls.nvim
+    ● mason-tool-installer.nvim 10.96ms  Lazy load
+    ● mason.nvim 14.44ms  Lazy load  nvim-treesitter
+    ● mini.icons 10.94ms 󰢱 mini.icons  astroui
+    ● neoconf.nvim 33.79ms  nvim-lspconfig
+    ● none-ls.nvim 109.79ms  User AstroFile
+    ● nvim-autopairs 11.3ms  User AstroFile
+    ● nvim-highlight-colors 10.14ms  User AstroFile
+    ● nvim-lspconfig 49.11ms  User AstroFile
+    ● nvim-treesitter 89.21ms  VeryLazy
+    ● nvim-treesitter-textobjects 20.6ms  nvim-treesitter
+    ● nvim-ts-autotag 13.84ms  User AstroFile
+    ● snacks.nvim 4.44ms  start
+    ● todo-comments.nvim 10.62ms  User AstroFile
+    ● vim-illuminate 43.99ms  User AstroFile
+    ● which-key.nvim 4.88ms  VeryLazy
