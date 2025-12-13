@@ -1,0 +1,9 @@
+
+https://docs.astronvim.com/recipes/dashboard/
+AstroNvim comes with snacks.dashboard by default for providing a dashboard/home screen. 
+This page provides a few common customization options.
+https://github.com/folke/snacks.nvim/blob/main/docs/dashboard.md
+Default preset support telescope.nvim
+https://github.com/nvim-telescope/telescope.nvim
+https://www.youtube.com/watch?v=h67FHVn1PRE&start=218
+
