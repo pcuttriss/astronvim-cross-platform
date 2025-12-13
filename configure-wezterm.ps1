@@ -44,6 +44,11 @@ config.initial_rows = 48
 config.initial_cols = 150
 config.color_scheme_dirs = { '$luaThemeDir' }
 config.color_scheme = "Dracula (Official)"
+-- Use a bright background and a contrasting foreground for selected text
+config.colors = {
+  selection_bg = '#FFFFE0',
+  selection_fg = '#000000',
+}
 -- config.tab_bar_at_bottom = true
 -- config.use_fancy_tab_bar = false
 config.window_decorations = "RESIZE"
@@ -122,7 +127,7 @@ config.keys = {
   },
 }
 
--- Copy on mouse selection using a left handed mouse
+-- Copy on mouse selection
 config.mouse_bindings = {
   {
     event = { Up = { streak = 1, button = 'Left' } },
