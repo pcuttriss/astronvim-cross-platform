@@ -93,4 +93,7 @@ Install-App -AppId dundee.gdu -AppName "gdu"
 # 9. Install Neovide
 Install-App -AppId Neovide.Neovide -AppName "Neovide"
 
+# 10. Install Deno
+Install-App -AppId DenoLand.Deno -AppName "Deno"
+
 Write-Host "✅ Setup script finished running." -ForegroundColor Green

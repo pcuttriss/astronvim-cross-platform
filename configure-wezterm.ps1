@@ -40,7 +40,7 @@ local config = wezterm.config_builder()
 config.front_end = 'WebGpu'
 
 -- Set Window Size and Appearance
-config.initial_rows = 48
+config.initial_rows = 30
 config.initial_cols = 150
 config.color_scheme_dirs = { '$luaThemeDir' }
 config.color_scheme = "Dracula (Official)"
